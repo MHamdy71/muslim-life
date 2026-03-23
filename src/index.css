@@ -113,6 +113,16 @@
   --color-success-900: #074D31;
   --color-success-950: #053321;
 
+  /* Semantic aliases (mapped to existing tokens only) */
+  --color-background: var(--color-gray-25);
+  --color-surface: var(--color-gray-25);
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-border: var(--color-gray-200);
+  --color-primary: var(--color-primary-600);
+  --color-primary-foreground: var(--color-gray-25);
+  --color-muted: var(--color-gray-100);
+
   /* Typography tokens */
   --font-ui: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
   --font-content: "Noto Naskh Arabic", serif;
@@ -128,6 +138,8 @@
 
 @layer base {
   body {
-    @apply bg-gray-25 text-gray-900 font-ui;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-ui);
   }
 }
