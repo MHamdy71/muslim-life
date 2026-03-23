@@ -1,0 +1,23 @@
+---
+description: Semantic colors only (no fallback to palette colors)
+globs: "**/*.{ts,tsx,css,scss}"
+alwaysApply: false
+---
+
+# Colors Contract (Strict Control)
+
+- Colors will be provided explicitly by you; do not generate or suggest new colors.
+- Do not modify provided colors.
+
+## Semantic Tokens Only
+
+- Components must use only semantic color tokens (example names: `primary`, `background`, `text`, `muted`).
+- Do NOT use raw Tailwind palette color utilities (example: `text-green-500`, `bg-blue-200`).
+
+## No Fallbacks (Critical)
+
+- Do NOT fallback to raw Tailwind colors under any circumstance.
+- If a required semantic token is missing:
+  - request it rather than using any fallback
+  - do not invent an approximate semantic token name
+

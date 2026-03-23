@@ -1,0 +1,21 @@
+---
+description: Typography is strict (UI vs content fonts)
+globs: "**/*.{ts,tsx,css,scss}"
+alwaysApply: false
+---
+
+# Typography Rules (Strict Usage)
+
+- UI elements (buttons, tabs, labels, interface controls) must use:
+  - `IBM Plex Sans Arabic` + `IBM Plex Sans`
+- Long Arabic content (Azkar, Quran, Dua, long passages) must use:
+  - `Noto Naskh Arabic`
+- Always apply the correct font explicitly (do not rely on inherited defaults).
+- Never mix fonts incorrectly within the same text role.
+
+# Implementation Guidance
+
+- Prefer dedicated font utilities/classes such as `font-ui` and `font-content`.
+- If these utilities do not exist yet, define them during the “define design tokens” stage, then use them consistently.
+- Use RTL-aware layout/alignment as required by the UI reference.
+

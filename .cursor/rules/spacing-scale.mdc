@@ -1,0 +1,18 @@
+---
+description: Spacing uses Tailwind default scale only
+globs: "**/*.{ts,tsx,css,scss}"
+alwaysApply: false
+---
+
+# Spacing Rules
+
+- Use Tailwind default spacing scale utilities (examples: `p-4`, `mt-2`, `gap-3`).
+- Avoid arbitrary values (examples: `p-[13px]`, `m-[5.5px]`).
+- Do NOT create a custom spacing token system or custom spacing keys.
+- Prefer existing spacing values already used elsewhere in the UI.
+
+# CSS/SCSS Notes
+
+- If you must write spacing outside Tailwind, avoid one-off random values (hex/px-like spacing).
+- Keep new values aligned to the same “default scale” intent you use with Tailwind utilities.
+

@@ -1,0 +1,17 @@
+---
+description: Enforce canonical semantic token names (no synonyms)
+globs: "**/*.{ts,tsx,css,scss}"
+alwaysApply: false
+---
+
+# Naming Consistency (Critical)
+
+- Use consistent semantic naming across the project:
+  - `primary`
+  - `background`
+  - `text`
+  - `muted`
+- Do NOT introduce alternative names for the same concept (avoid synonyms).
+  - Example: if `primary` exists, do not create `brandPrimary`, `main`, or `accentPrimary`.
+- When adding new semantic tokens later, define one canonical name and reuse it everywhere.
+

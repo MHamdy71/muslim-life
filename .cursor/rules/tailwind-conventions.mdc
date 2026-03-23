@@ -1,0 +1,29 @@
+---
+description: Tailwind usage rules (no palette colors, no arbitrary values)
+globs: "**/*.{ts,tsx,css,scss}"
+alwaysApply: false
+---
+
+# Tailwind Usage Rules (Stronger Enforcement)
+
+## Allowed
+
+- Layout utilities (`flex`, `grid`, etc.)
+- Spacing utilities (`p-4`, `mt-2`, `gap-3`, etc.)
+- Border/radius/shadow utilities
+
+## Not Allowed
+
+- Arbitrary values (e.g. `p-[13px]`)
+- Raw Tailwind palette color utilities (e.g. `text-green-500`, `bg-gray-100`)
+- Hardcoded color values:
+  - no `#hex`, `rgb()`, `rgba()`, `hsl()` in inline styles
+  - no hardcoded colors in CSS/SCSS/style props
+
+## Semantic Colors Only
+
+- Colors must always come from semantic tokens only.
+- Do NOT fallback to palette colors if a semantic token is missing.
+- If a required semantic token is missing, request it instead of inventing a fallback.
+- Use token-based color classes derived from your semantic token keys (e.g. `text-primary`, `bg-background`).
+
