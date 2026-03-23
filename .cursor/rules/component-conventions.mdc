@@ -1,0 +1,21 @@
+---
+description: Component strategy (duplication-first, reference-first)
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Component Strategy (Early Stage)
+
+- Build reusable components only.
+- Keep components simple and readable.
+- Prefer duplication over premature abstraction.
+- Do not generalize components too early.
+- Focus on matching the UI reference first (layout/structure); pixel-perfect is allowed.
+- Refactor later once the structure is validated.
+
+# Styling Inside Components
+
+- Use Tailwind for layout/spacing/border/radius/shadow.
+- Use semantic color tokens for colors (no hardcoded color values).
+- Use the correct typography font utility explicitly (UI vs content) based on the text role.
+

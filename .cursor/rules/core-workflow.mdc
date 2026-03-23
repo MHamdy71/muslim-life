@@ -1,0 +1,21 @@
+---
+description: Core UI foundation workflow (tokens -> components -> refine later)
+alwaysApply: true
+---
+
+# Core Workflow
+
+- Always follow this order:
+  1. Define design tokens (colors/typography)
+  2. Build reusable components
+  3. Refine and polish later
+  4. Ship
+- Do not jump into polish early.
+- Do not make random design decisions outside the system.
+
+# UI Reference Handling (Critical)
+
+- When a UI reference (Figma/image) is provided:
+  - Match layout and structure accurately (pixel-perfect allowed).
+  - Do not redesign or simplify unless explicitly requested.
+
