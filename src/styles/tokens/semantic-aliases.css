@@ -1,0 +1,10 @@
+@theme {
+  --color-background: var(--color-gray-25);
+  --color-surface: var(--color-gray-25);
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-border: var(--color-gray-200);
+  --color-primary: var(--color-primary-600);
+  --color-primary-foreground: var(--color-gray-25);
+  --color-muted: var(--color-gray-100);
+}

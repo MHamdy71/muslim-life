@@ -1,0 +1,8 @@
+@theme {
+  --background-image-gradient-primary-1: linear-gradient(90deg, #1B8354 0%, #25935F 100%);
+  --background-image-gradient-primary-2: linear-gradient(45deg, #166A45 0%, #1B8354 100%);
+  --background-image-gradient-primary-3: linear-gradient(45deg, #092A1E 0%, #1B8354 100%);
+  --background-image-gradient-primary-4: linear-gradient(90deg, #14573A 0%, #1B8354 100%);
+  --background-image-gradient-primary-5: linear-gradient(26.5deg, #14573A 0%, #166A45 100%);
+  --background-image-gradient-primary-6: linear-gradient(45deg, #104631 0%, #1B8354 100%);
+}
