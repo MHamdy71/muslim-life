@@ -38,17 +38,13 @@ const roundedClasses: Record<ComponentRounded, string> = {
   full: "rounded-full overflow-hidden",
 };
 
-function cx(...parts: Array<string | false | null | undefined>) {
-  return parts.filter(Boolean).join(" ");
-}
-
 function Chevron({ open, disabled }: { open: boolean; disabled: boolean }) {
   return (
     <svg
       aria-hidden="true"
-      className={cx(
+      className={twMerge(
         "size-4 shrink-0 transition-transform",
-        disabled ? "text-text-disabled" : "text-text-muted",
+        disabled ? "text-gray-400" : "text-gray-600",
         open && "rotate-180",
       )}
       viewBox="0 0 16 16"
@@ -89,9 +85,9 @@ export default function Accordion({
   return (
     <section
       className={twMerge(
-        "w-full border-border text-text px-0 border-t",
+        "w-full border-gray-200 text-gray-900 px-0 border-t",
         roundedClasses[rounded],
-        disabled && "text-text-disabled",
+        disabled && "text-gray-400",
         className,
       )}
     >
@@ -101,11 +97,11 @@ export default function Accordion({
         aria-disabled={disabled}
         disabled={disabled}
         onClick={handleToggle}
-        className={cx(
-          "flex w-full items-center gap-4 bg-surface font-ui font-semibold text-start transition-colors hover:bg-interactive-hover active:bg-interactive-pressed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus",
+        className={twMerge(
+          "flex w-full items-center gap-4 bg-gray-25 font-semibold text-start transition-colors hover:bg-gray-100 active:bg-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900",
           headerSizeClasses[size],
           disabled &&
-            "cursor-not-allowed text-text-disabled hover:bg-transparent active:bg-transparent",
+            "cursor-not-allowed text-gray-400 hover:bg-transparent active:bg-transparent",
         )}
       >
         {iconPlacement === "leading" && (
@@ -119,16 +115,16 @@ export default function Accordion({
 
       {isOpen && (
         <div
-          className={cx(
-            "bg-surface",
+          className={twMerge(
+            "bg-gray-25",
             contentSizeClasses[size],
-            disabled ? "text-text-disabled" : "text-text-muted",
+            disabled ? "text-gray-400" : "text-gray-600",
           )}
         >
           <div
-            className={cx(
+            className={twMerge(
               "leading-6",
-              disabled ? "text-text-disabled" : "text-text-muted",
+              disabled ? "text-gray-400" : "text-gray-600",
             )}
           >
             {children}

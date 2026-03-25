@@ -1,5 +1,5 @@
 ---
-description: Tailwind usage rules (no palette colors, no arbitrary values)
+description: Tailwind usage (project palette from colors.css, no arbitrary spacing)
 globs: "**/*.{ts,tsx,css,scss}"
 alwaysApply: false
 ---
@@ -15,19 +15,20 @@ alwaysApply: false
 ## Not Allowed
 
 - Arbitrary values (e.g. `p-[13px]`)
-- Raw Tailwind palette color utilities (e.g. `text-green-500`, `bg-gray-100`)
+- Color utilities for scales **not** defined in `src/styles/tokens/colors.css` (e.g. stock `text-green-500` if green isn’t in the project file)
 - Hardcoded color values:
   - no `#hex`, `rgb()`, `rgba()`, `hsl()` in inline styles
   - no hardcoded colors in CSS/SCSS/style props
 
-## Semantic Colors Only
+## Colors (project palette)
 
-- Colors must always come from semantic tokens only.
-- Do NOT fallback to palette colors if a semantic token is missing.
-- If a required semantic token is missing, request it instead of inventing a fallback.
-- Use token-based color classes derived from your semantic token keys (e.g. `text-primary`, `bg-background`).
+- Use Tailwind color utilities that map to `src/styles/tokens/colors.css` (e.g. `gray-25` … `gray-950`, `primary-600`, `border-gray-200`). Do not add a parallel “semantic name” layer unless explicitly requested.
+- Do **not** use default Tailwind palette names that are not in this project’s `colors.css` unless those scales are added there first.
+- Do **not** add `dark:` variants or theme toggles; the app is light-only.
 
-## Dark Mode
+## Class name merging
 
-- Prefer semantic utilities so colors track `dark-mode.css` under a `.dark` ancestor. Avoid raw palette `dark:*` utilities (e.g. `dark:bg-gray-800`); if design differs, add a semantic token with light + dark values instead.
+- In components (and anywhere Tailwind classes are composed), use **`twMerge`** from `tailwind-merge` for every `className` value, including internal subtrees (icons, children wrappers), not only the root when a `className` prop exists.
+- Do **not** use a project-local `cx`/`cn` that only concatenates strings unless it wraps `twMerge` (this repo standard is `twMerge` directly).
+- Pass conditional pieces as `condition && "classes"`; `twMerge` accepts falsy entries per its `ClassNameValue` typing.
 

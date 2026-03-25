@@ -1,5 +1,5 @@
 ---
-description: Semantic colors only (no fallback to palette colors)
+description: Use project palette from colors.css only (strict control)
 globs: "**/*.{ts,tsx,css,scss}"
 alwaysApply: false
 ---
@@ -7,22 +7,15 @@ alwaysApply: false
 # Colors Contract (Strict Control)
 
 - Colors will be provided explicitly by you; do not generate or suggest new colors.
-- Do not modify provided colors.
+- Do not modify provided colors in `src/styles/tokens/colors.css` unless asked.
 
-## Semantic Tokens Only
+## Project palette only
 
-- Components must use only semantic color tokens (example names: `primary`, `background`, `text`, `muted`).
-- Do NOT use raw Tailwind palette color utilities (example: `text-green-500`, `bg-blue-200`).
-
-## Dark Mode (Paired Definitions)
-
-- Semantic colors used in the UI must be defined for **light** in `src/styles/tokens/semantic-aliases.css` and for **dark** under `.dark` in `src/styles/tokens/dark-mode.css`.
-- When adding a new semantic color, add both the `@theme` entry and the `.dark` override in the same change; do not ship a token that only works in light mode.
+- Components must use Tailwind utilities backed by `src/styles/tokens/colors.css` (`gray-*`, `primary-*`, etc.).
+- Do **not** use arbitrary palette utilities that are not part of this file (examples to avoid: default `text-green-500`, `bg-blue-200` from stock Tailwind if those scales are not in `colors.css`).
+- Do **not** add a separate semantic alias CSS layer; map UI directly to the documented scales (e.g. `bg-gray-25`, `text-gray-900`, `border-gray-200`, `text-primary-600`).
 
 ## No Fallbacks (Critical)
 
-- Do NOT fallback to raw Tailwind colors under any circumstance.
-- If a required semantic token is missing:
-  - request it rather than using any fallback
-  - do not invent an approximate semantic token name
-
+- Do NOT invent hex/rgb in components or one-off palette utilities outside `colors.css`.
+- If a required shade or scale is missing from `colors.css`, request it instead of approximating.

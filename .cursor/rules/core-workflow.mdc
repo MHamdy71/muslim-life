@@ -6,7 +6,7 @@ alwaysApply: true
 # Core Workflow
 
 - Always follow this order:
-  1. Define design tokens (colors/typography, including **light and dark** pairs for semantic colors in `semantic-aliases.css` / `dark-mode.css` per `dark-mode.mdc`)
+  1. Define design tokens (palette in `colors.css`, fonts in `typography.css`, plus gradients/shadows as needed — light theme only)
   2. Build reusable components
   3. Refine and polish later
   4. Ship

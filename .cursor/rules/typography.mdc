@@ -1,21 +1,17 @@
 ---
-description: Typography is strict (UI vs content fonts)
+description: Typography (inherited UI font vs explicit content font)
 globs: "**/*.{ts,tsx,css,scss}"
 alwaysApply: false
 ---
 
 # Typography Rules (Strict Usage)
 
-- UI elements (buttons, tabs, labels, interface controls) must use:
-  - `IBM Plex Sans Arabic` + `IBM Plex Sans`
-- Long Arabic content (Azkar, Quran, Dua, long passages) must use:
-  - `Noto Naskh Arabic`
-- Always apply the correct font explicitly (do not rely on inherited defaults).
-- Never mix fonts incorrectly within the same text role.
+- **Default UI:** `body` in `index.css` sets the UI stack (`IBM Plex Sans Arabic`, `IBM Plex Sans`). Components **inherit** this — do **not** add `font-ui` on controls, labels, avatars, etc.
+- **Long Arabic content** (Azkar, Quran, Dua, long passages) must use **`font-content`** (`Noto Naskh Arabic`) on those regions only.
+- Never mix the content font into generic UI chrome.
 
 # Implementation Guidance
 
-- Prefer dedicated font utilities/classes such as `font-ui` and `font-content`.
-- If these utilities do not exist yet, define them during the “define design tokens” stage, then use them consistently.
+- Do not use a `font-ui` utility in TSX/CSS for normal components; rely on inheritance.
+- Apply `font-content` only where the text role is long-form religious or reading content.
 - Use RTL-aware layout/alignment as required by the UI reference.
-

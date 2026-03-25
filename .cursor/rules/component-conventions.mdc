@@ -21,13 +21,7 @@ alwaysApply: false
 # Styling Inside Components
 
 - Use Tailwind for layout/spacing/border/radius/shadow.
-- Use semantic color tokens for colors (no hardcoded color values).
-- Use the correct typography font utility explicitly (UI vs content) based on the text role.
-
-# Dark Mode
-
-- Components must support dark mode **by using semantic color utilities only** so variables from `semantic-aliases.css` switch under `.dark` via `dark-mode.css`.
-- Do not implement one-off dark styling with raw palette `dark:*` utilities; extend semantic tokens (light + `.dark` pair) when design requires new colors.
-- Merge default classes with `className` using `tailwind-merge` where layout/size defaults should be overridable.
-- See `dark-mode.mdc` for the full workflow.
-
+- Use palette utilities from `colors.css` (e.g. `bg-gray-100`, `text-gray-900`) — no hex/rgb in class strings beyond what Tailwind generates from `@theme`.
+- **Fonts:** rely on `body` for UI (inherit); use `font-content` only for long Arabic reading content per `typography.mdc`.
+- **Class lists:** build every `className` with `twMerge` from `tailwind-merge`. Do not add a local `cx` / `classNames` helper that only joins strings — `twMerge` resolves conflicting Tailwind utilities and accepts conditional args (`false` / `undefined` are ignored).
+- Merge consumer `className` with defaults via `twMerge(defaults, className)` so overrides win for conflicting utilities.
