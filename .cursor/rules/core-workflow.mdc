@@ -7,7 +7,7 @@ alwaysApply: true
 
 - Always follow this order:
   1. Define design tokens (palette in `colors.css`, fonts in `typography.css`, plus gradients/shadows as needed — light theme only)
-  2. Build reusable components
+  2. Build reusable components (keep each one as small and direct as the design allows)
   3. Refine and polish later
   4. Ship
 - Do not jump into polish early.
@@ -19,4 +19,9 @@ alwaysApply: true
   - Match layout and structure accurately (pixel-perfect allowed).
   - Do not redesign or simplify unless explicitly requested.
 - For new component implementation, require Figma Desktop MCP context first; do not implement without it.
+
+# Source code comments
+
+- Do not add comments in application source under `src/` (no `//`, `/* */`, or JSDoc on components, props, or internals). Prefer clear naming and structure.
+- Exceptions: triple-slash references required by tooling (e.g. Vite); user explicitly asks for a comment; or license headers where mandatory.
 
