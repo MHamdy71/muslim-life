@@ -1,0 +1,33 @@
+---
+description: RTL-safe component variants and logical CSS/Tailwind usage
+globs: "**/*.{ts,tsx,css,scss}"
+alwaysApply: false
+---
+
+# RTL and Variant Rules (All Components)
+
+- Build component variants from props (single component API), not separate per-language components.
+- Do not create separate style sets/classes for LTR vs RTL unless explicitly requested.
+- Components must be direction-safe by default.
+
+## Variant Contract
+
+- Use consistent variant names across components:
+  - `size`: `small | medium | large`
+  - `flush`: `true | false`
+  - `expanded`: `true | false`
+  - visual interaction state (as needed for preview/spec parity): `default | hover | pressed | focused`
+- For first component (accordion), follow the same contract so the pattern scales to all next components.
+
+## Logical Properties Only
+
+- Do not use physical direction properties in styles:
+  - avoid `left`, `right`, `margin-left`, `margin-right`, `padding-left`, `padding-right`
+- Use logical properties/utilities instead:
+  - CSS: `margin-inline-start/end`, `padding-inline-start/end`, `inset-inline-start/end`, `border-inline-start/end`
+  - Tailwind logical utilities: `ms-*`, `me-*`, `ps-*`, `pe-*`, `inset-x-*` (when suitable), and logical border/radius utilities when available.
+
+## Direction Handling
+
+- Let document/container `dir` handle direction naturally; do not fork class lists per language direction.
+- Keep component markup and class composition direction-agnostic.

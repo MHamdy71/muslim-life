@@ -1,0 +1,22 @@
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --color-background: var(--color-gray-950);
+    --color-surface: var(--color-gray-900);
+    --color-text: var(--color-gray-25);
+    --color-text-muted: var(--color-gray-300);
+    --color-text-disabled: var(--color-gray-500);
+    --color-border: var(--color-gray-700);
+    --color-primary: var(--color-primary-400);
+    --color-primary-foreground: var(--color-gray-950);
+    --color-muted: var(--color-gray-800);
+    --color-interactive-hover: var(--color-gray-800);
+    --color-interactive-pressed: var(--color-gray-700);
+    --color-focus: var(--color-gray-25);
+  }
+}
+

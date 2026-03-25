@@ -18,4 +18,5 @@ alwaysApply: true
 - When a UI reference (Figma/image) is provided:
   - Match layout and structure accurately (pixel-perfect allowed).
   - Do not redesign or simplify unless explicitly requested.
+- For new component implementation, require Figma Desktop MCP context first; do not implement without it.
 

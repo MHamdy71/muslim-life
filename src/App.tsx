@@ -1,10 +1,7 @@
+import Accordion from "./components/Accordion";
 
 function App() {
-
-  return (
-    <>
-    </>
-  )
+  return <main className="mx-auto flex gap-6 p-6"></main>;
 }
 
-export default App
+export default App;

@@ -2,6 +2,7 @@
 @import "./styles/tokens/colors.css";
 @import "./styles/tokens/typography.css";
 @import "./styles/tokens/semantic-aliases.css";
+@import "./styles/tokens/dark-mode.css";
 @import "./styles/tokens/gradients.css";
 @import "./styles/tokens/shadows.css";
 

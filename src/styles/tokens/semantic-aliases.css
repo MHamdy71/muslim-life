@@ -1,10 +1,21 @@
 @theme {
+  /* Surface and text */
   --color-background: var(--color-gray-25);
   --color-surface: var(--color-gray-25);
   --color-text: var(--color-gray-900);
   --color-text-muted: var(--color-gray-600);
+  --color-text-disabled: var(--color-gray-400);
+
+  /* Borders */
   --color-border: var(--color-gray-200);
+
+  /* Brand */
   --color-primary: var(--color-primary-600);
   --color-primary-foreground: var(--color-gray-25);
+
+  /* Interaction */
   --color-muted: var(--color-gray-100);
+  --color-interactive-hover: var(--color-gray-100);
+  --color-interactive-pressed: var(--color-gray-200);
+  --color-focus: var(--color-gray-900);
 }

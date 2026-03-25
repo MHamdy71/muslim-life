@@ -12,6 +12,11 @@ alwaysApply: false
 - Do not generalize components too early.
 - Focus on matching the UI reference first (layout/structure); pixel-perfect is allowed.
 - Refactor later once the structure is validated.
+- For components with variants, keep one clear props contract and render from props, not ad-hoc style branches.
+- Reuse a shared variant naming scheme across components:
+  - `size`: `small | medium | large`
+  - booleans like `flush`, `expanded`
+  - interaction state keys like `default | hover | pressed | focused` when needed by design review/demo.
 
 # Styling Inside Components
 

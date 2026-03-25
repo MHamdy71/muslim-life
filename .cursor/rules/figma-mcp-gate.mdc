@@ -1,0 +1,23 @@
+---
+description: Require Figma Desktop MCP design context before UI implementation
+alwaysApply: true
+---
+
+# Figma-First Implementation Gate
+
+- Do not implement any new UI component without a design reference from Figma Desktop MCP.
+- If no Figma design context is provided yet, stop and ask for it first.
+- Use Figma Desktop MCP as the source of truth for structure, spacing, hierarchy, and states.
+- If a user asks to implement before sharing Figma context, do not scaffold or guess the component.
+
+# Required Workflow For Components
+
+1. Get Figma context first (URL/node/screenshot via Figma Desktop MCP).
+2. Confirm variants and states from design.
+3. Implement the component to match design.
+4. Iterate only after design-backed review.
+
+# Scope
+
+- Applies to all UI components (Accordion and every next component).
+- No "temporary" component implementation without design.
