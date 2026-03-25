@@ -14,6 +14,11 @@ alwaysApply: false
 - Components must use only semantic color tokens (example names: `primary`, `background`, `text`, `muted`).
 - Do NOT use raw Tailwind palette color utilities (example: `text-green-500`, `bg-blue-200`).
 
+## Dark Mode (Paired Definitions)
+
+- Semantic colors used in the UI must be defined for **light** in `src/styles/tokens/semantic-aliases.css` and for **dark** under `.dark` in `src/styles/tokens/dark-mode.css`.
+- When adding a new semantic color, add both the `@theme` entry and the `.dark` override in the same change; do not ship a token that only works in light mode.
+
 ## No Fallbacks (Critical)
 
 - Do NOT fallback to raw Tailwind colors under any circumstance.

@@ -27,3 +27,7 @@ alwaysApply: false
 - If a required semantic token is missing, request it instead of inventing a fallback.
 - Use token-based color classes derived from your semantic token keys (e.g. `text-primary`, `bg-background`).
 
+## Dark Mode
+
+- Prefer semantic utilities so colors track `dark-mode.css` under a `.dark` ancestor. Avoid raw palette `dark:*` utilities (e.g. `dark:bg-gray-800`); if design differs, add a semantic token with light + dark values instead.
+

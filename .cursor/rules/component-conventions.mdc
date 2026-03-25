@@ -24,3 +24,10 @@ alwaysApply: false
 - Use semantic color tokens for colors (no hardcoded color values).
 - Use the correct typography font utility explicitly (UI vs content) based on the text role.
 
+# Dark Mode
+
+- Components must support dark mode **by using semantic color utilities only** so variables from `semantic-aliases.css` switch under `.dark` via `dark-mode.css`.
+- Do not implement one-off dark styling with raw palette `dark:*` utilities; extend semantic tokens (light + `.dark` pair) when design requires new colors.
+- Merge default classes with `className` using `tailwind-merge` where layout/size defaults should be overridable.
+- See `dark-mode.mdc` for the full workflow.
+
