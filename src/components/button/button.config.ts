@@ -5,6 +5,8 @@ import type {
   ButtonVariant,
 } from "./button.types";
 
+//#region Presets
+
 export const onColorFilled: ButtonAppearanceSlice = {
   shell: "border-transparent bg-white text-gray-900",
   idle: "hover:bg-white/80 active:bg-white/60",
@@ -55,6 +57,10 @@ export const fallbackAppearance: ButtonAppearanceSlice = {
   selected: "",
   focusOuter: "#0d121c",
 };
+
+//#endregion
+
+//#region Appearance matrix
 
 export const buttonAppearanceConfig: Record<
   ButtonTone,
@@ -136,3 +142,5 @@ export const buttonAppearanceConfig: Record<
     on: destructiveVisuals,
   },
 };
+
+//#endregion

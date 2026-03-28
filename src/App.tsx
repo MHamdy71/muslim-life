@@ -1,6 +1,14 @@
-import { CheckCircleIcon, WarningCircleIcon } from "@phosphor-icons/react";
+import {
+  CheckCircleIcon,
+  InfoIcon,
+  WarningCircleIcon,
+} from "@phosphor-icons/react";
 import Button from "./components/Button";
 import Card from "./components/Card";
+import ProgressBar, {
+  type ProgressBarSize,
+  type ProgressBarStyle,
+} from "./components/ProgressBar";
 import Tag, { type TagSize, type TagStyle } from "./components/Tag";
 
 const tagStyles: TagStyle[] = [
@@ -12,6 +20,24 @@ const tagStyles: TagStyle[] = [
 ];
 
 const tagSizes: TagSize[] = ["xSmall", "small", "medium", "large"];
+
+const progressBarStyles: ProgressBarStyle[] = [
+  "primary",
+  "neutral",
+  "warning",
+  "error",
+  "info",
+];
+
+const progressBarSizes: ProgressBarSize[] = ["small", "medium", "large"];
+
+const progressStyleLabel: Record<ProgressBarStyle, string> = {
+  primary: "Primary",
+  neutral: "Neutral",
+  warning: "Warning",
+  error: "Error",
+  info: "Info",
+};
 
 const styleLabel: Record<TagStyle, string> = {
   neutral: "Neutral",
@@ -157,6 +183,103 @@ function App() {
               </div>
             }
           />
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-6">
+        <h2 className="text-lg font-bold text-gray-900">
+          Progress bar playground
+        </h2>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-medium text-gray-700">By style (medium)</p>
+          <div className="flex max-w-xl flex-col gap-4">
+            {progressBarStyles.map((s) => (
+              <ProgressBar
+                key={s}
+                value={s === "error" ? 72 : s === "warning" ? 55 : 38}
+                size="medium"
+                style={s}
+                label={progressStyleLabel[s]}
+                helperText="Helper text for this variant."
+                helperIcon={
+                  <InfoIcon
+                    weight="regular"
+                    className="text-current"
+                    aria-hidden
+                  />
+                }
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-medium text-gray-700">By size (primary)</p>
+          <div className="flex max-w-xl flex-col gap-4">
+            {progressBarSizes.map((sz) => (
+              <ProgressBar
+                key={sz}
+                value={62}
+                size={sz}
+                style="primary"
+                label={`Size: ${sz}`}
+                helperText="Same value, different track height."
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-medium text-gray-700">Rounded</p>
+          <div className="grid max-w-xl gap-4 sm:grid-cols-2">
+            <ProgressBar
+              value={50}
+              size="medium"
+              style="neutral"
+              label="Rounded off"
+              rounded={false}
+            />
+            <ProgressBar
+              value={50}
+              size="medium"
+              style="neutral"
+              label="Rounded on"
+              rounded
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-medium text-gray-700">
+            Large with inline value
+          </p>
+          <div className="max-w-xl">
+            <ProgressBar
+              value={84}
+              size="large"
+              style="primary"
+              label="Upload progress"
+              helperText="Large bars show the percentage inside the fill."
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-sm font-medium text-gray-700">Circular</p>
+          <div className="flex flex-wrap items-end gap-8">
+            {progressBarSizes.map((sz) => (
+              <ProgressBar
+                key={`circ-${sz}`}
+                value={50}
+                size={sz}
+                style="primary"
+                label={sz}
+                helperText={sz === "small" ? undefined : "Active users"}
+                circular
+              />
+            ))}
+          </div>
         </div>
       </section>
     </main>

@@ -6,6 +6,8 @@ import {
 } from "./tag.styles";
 import type { TagProps } from "./tag.types";
 
+//#region Component
+
 export default function Tag({
   children,
   size = "medium",
@@ -58,3 +60,5 @@ export default function Tag({
     </span>
   );
 }
+
+//#endregion

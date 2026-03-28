@@ -7,6 +7,8 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
+//#region Types and layout tokens
+
 export type CardType = "default" | "favorite" | "progress" | "selectable";
 export type CardDepth = "none" | "small" | "medium" | "large";
 
@@ -46,6 +48,10 @@ const strokeClasses: Record<CardDepth, string> = {
   large: "border-2 border-gray-200",
 };
 
+//#endregion
+
+//#region Utilities
+
 function isNestedInteractiveTarget(
   target: EventTarget | null,
   cardRoot: Element,
@@ -69,6 +75,10 @@ function isNestedInteractiveTarget(
   if (!hit || hit === cardRoot) return false;
   return cardRoot.contains(hit);
 }
+
+//#endregion
+
+//#region HeartIndicator
 
 function HeartIndicator({
   selected,
@@ -101,6 +111,10 @@ function HeartIndicator({
   );
 }
 
+//#endregion
+
+//#region CheckboxIndicator
+
 function CheckboxIndicator({
   selected,
   disabled,
@@ -132,6 +146,10 @@ function CheckboxIndicator({
   );
 }
 
+//#endregion
+
+//#region ChevronIcon
+
 function ChevronIcon({
   expanded,
   disabled,
@@ -152,6 +170,10 @@ function ChevronIcon({
     />
   );
 }
+
+//#endregion
+
+//#region Card
 
 export default function Card({
   type = "default",
@@ -346,3 +368,5 @@ export default function Card({
     </div>
   );
 }
+
+//#endregion

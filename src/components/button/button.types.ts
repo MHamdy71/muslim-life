@@ -1,6 +1,8 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { ComponentRounded, ComponentSize } from "../../types/ui";
 
+//#region Variants and props
+
 export type ButtonVariant =
   | "neutral"
   | "primary"
@@ -29,6 +31,10 @@ export interface ButtonProps extends Omit<
   selected?: boolean;
 }
 
+//#endregion
+
+//#region Appearance slice
+
 export type ButtonAppearanceSlice = {
   shell: string;
   idle: string;
@@ -36,4 +42,10 @@ export type ButtonAppearanceSlice = {
   focusOuter: string;
 };
 
+//#endregion
+
+//#region Constants
+
 export const BUTTON_ROOT_DATA_ATTR = "data-msl-button-root" as const;
+
+//#endregion

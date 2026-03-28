@@ -11,12 +11,18 @@ import type {
   ButtonVariant,
 } from "./button.types";
 
+//#region Focus ring
+
 export function focusRing(outer: string): string {
   return (
     "focus-visible:outline-none " +
     `focus-visible:shadow-[0_0_0_0.125rem_#ffffff,0_0_0_0.3125rem_${outer}] focus-visible:overflow-visible`
   );
 }
+
+//#endregion
+
+//#region Merge
 
 export function mergeAppearance(
   slice: ButtonAppearanceSlice,
@@ -29,6 +35,10 @@ export function mergeAppearance(
     focusRing(slice.focusOuter),
   );
 }
+
+//#endregion
+
+//#region Resolve
 
 export function resolveButtonAppearance(
   variant: ButtonVariant,
@@ -43,6 +53,10 @@ export function resolveButtonAppearance(
   const tone: ButtonTone = destructive ? "destructive" : "default";
   return { tone, visual };
 }
+
+//#endregion
+
+//#region Enabled classes
 
 export function getEnabledAppearanceClasses(
   variant: ButtonVariant,
@@ -61,3 +75,5 @@ export function getEnabledAppearanceClasses(
     buttonAppearanceConfig[tone][surface][visual] ?? fallbackAppearance;
   return mergeAppearance(slice, selected);
 }
+
+//#endregion

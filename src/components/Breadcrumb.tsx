@@ -2,6 +2,8 @@ import { CaretRightIcon } from "@phosphor-icons/react";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
+//#region Types
+
 export type BreadcrumbLink = { label: string; href: string };
 
 export type BreadcrumbCrumb =
@@ -14,6 +16,10 @@ export interface BreadcrumbProps {
   className?: string;
 }
 
+//#endregion
+
+//#region Type guards
+
 function isEllipsis(
   item: BreadcrumbCrumb,
 ): item is { ellipsis: true; items?: BreadcrumbLink[] } {
@@ -25,6 +31,10 @@ function isCurrent(
 ): item is { label: string; current: true } {
   return "current" in item && item.current === true;
 }
+
+//#endregion
+
+//#region Separator and crumb shell
 
 function Separator({ muted }: { muted?: boolean }) {
   return (
@@ -45,6 +55,10 @@ function CrumbBody({ children }: { children: ReactNode }) {
     <span className="flex min-w-0 items-center gap-1 p-0">{children}</span>
   );
 }
+
+//#endregion
+
+//#region Ellipsis menu
 
 function BreadcrumbEllipsisMenu({
   overflowItems,
@@ -147,6 +161,10 @@ function BreadcrumbEllipsisMenu({
   );
 }
 
+//#endregion
+
+//#region Breadcrumb
+
 export default function Breadcrumb({ items, className }: BreadcrumbProps) {
   const navId = useId();
 
@@ -233,3 +251,5 @@ export default function Breadcrumb({ items, className }: BreadcrumbProps) {
     </nav>
   );
 }
+
+//#endregion

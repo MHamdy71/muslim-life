@@ -1,3 +1,5 @@
+//#region Barrel
+
 export { default } from "./button/button";
 export { BUTTON_ROOT_DATA_ATTR } from "./button/button";
 export type {
@@ -6,3 +8,5 @@ export type {
   ButtonTone,
   ButtonVariant,
 } from "./button/button";
+
+//#endregion

@@ -1,7 +1,13 @@
 import { twMerge } from "tailwind-merge";
 import type { ComponentRounded, ComponentSize } from "../../types/ui";
 
+//#region Base
+
 export const BUTTON_BASE = "border-2 font-medium";
+
+//#endregion
+
+//#region Rounded
 
 export const roundedClasses: Record<ComponentRounded, string> = {
   none: "rounded-none",
@@ -12,6 +18,10 @@ export const roundedClasses: Record<ComponentRounded, string> = {
   full: "rounded-full",
 };
 
+//#endregion
+
+//#region Disabled
+
 export const DISABLED_CLASSES = twMerge(
   BUTTON_BASE,
   "border-transparent",
@@ -19,6 +29,10 @@ export const DISABLED_CLASSES = twMerge(
   "[&_path:not([fill=none])]:!fill-gray-400 [&_path[stroke]]:!stroke-gray-400",
   "focus-visible:shadow-none focus-visible:outline-none",
 );
+
+//#endregion
+
+//#region Size
 
 export const sizeConfig: Record<
   ComponentSize,
@@ -44,3 +58,5 @@ export const sizeConfig: Record<
     iconSlot: "size-6",
   },
 };
+
+//#endregion

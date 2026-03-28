@@ -1,3 +1,5 @@
+//#region Barrel
+
 export { default } from "./tag/Tag";
 export type {
   TagIconPlacement,
@@ -5,3 +7,5 @@ export type {
   TagSize,
   TagStyle,
 } from "./tag/tag.types";
+
+//#endregion

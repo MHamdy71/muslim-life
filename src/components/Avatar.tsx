@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import type { AvatarSizeRem } from "../types/ui";
 
+//#region Types
+
 type AvatarBase = {
   size?: AvatarSizeRem;
   square?: boolean;
@@ -14,6 +16,10 @@ export type AvatarProps =
   | (AvatarBase & { variant: "letters"; letters: string })
   | (AvatarBase & { variant: "icon"; icon: ReactNode })
   | (AvatarBase & { variant: "image"; src: string; alt: string });
+
+//#endregion
+
+//#region Tokens
 
 const letterClasses: Record<AvatarSizeRem, string> = {
   "1.5rem": "text-xs font-bold",
@@ -29,6 +35,10 @@ function shapeRadiusClasses(square: boolean, size: AvatarSizeRem): string {
   if (!square) return "rounded-full";
   return size === "7.5rem" ? "rounded-lg" : "rounded";
 }
+
+//#endregion
+
+//#region Component
 
 export default function Avatar(props: AvatarProps) {
   const {
@@ -69,3 +79,5 @@ export default function Avatar(props: AvatarProps) {
     </span>
   );
 }
+
+//#endregion

@@ -1,10 +1,16 @@
 import type { TagSize, TagStyle } from "./tag.types";
 
+//#region Layout
+
 const tagRootLayout = "inline-flex items-center justify-center";
 
 type Variant = "outline" | "filled";
 
 type Tone = Record<Variant, string>;
+
+//#endregion
+
+//#region Appearance
 
 const tones: Record<TagStyle, Tone> = {
   neutral: {
@@ -40,6 +46,10 @@ export function tagAppearanceClasses(
 export function tagRadiusClasses(rounded: boolean): string {
   return rounded ? "rounded-full" : "rounded-sm";
 }
+
+//#endregion
+
+//#region Size
 
 const iconSvg = "[&>svg]:size-full";
 
@@ -94,3 +104,5 @@ export const tagSizeClasses: Record<
     iconOnlyMin: "min-w-10",
   },
 };
+
+//#endregion

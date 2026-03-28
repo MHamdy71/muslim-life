@@ -5,6 +5,8 @@ import { DISABLED_CLASSES, roundedClasses, sizeConfig } from "./button.styles";
 import { BUTTON_ROOT_DATA_ATTR, type ButtonProps } from "./button.types";
 import { getEnabledAppearanceClasses } from "./button.utils";
 
+//#region Re-exports
+
 export type {
   ButtonProps,
   ButtonSurface,
@@ -13,6 +15,10 @@ export type {
 } from "./button.types";
 
 export { BUTTON_ROOT_DATA_ATTR };
+
+//#endregion
+
+//#region Subcomponents
 
 function IconSlot({
   className,
@@ -44,6 +50,10 @@ function LoadingSpinner({ className }: { className?: string }) {
     />
   );
 }
+
+//#endregion
+
+//#region Button
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
@@ -149,5 +159,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     </button>
   );
 });
+
+//#endregion
 
 export default Button;

@@ -7,6 +7,8 @@ import type {
   IconPlacement,
 } from "../types/ui";
 
+//#region Types and style maps
+
 export interface AccordionProps {
   title: string;
   children: ReactNode;
@@ -40,6 +42,10 @@ const roundedClasses: Record<ComponentRounded, string> = {
   full: "rounded-full overflow-hidden",
 };
 
+//#endregion
+
+//#region Chevron
+
 function Chevron({ open, disabled }: { open: boolean; disabled: boolean }) {
   return (
     <CaretDownIcon
@@ -54,6 +60,10 @@ function Chevron({ open, disabled }: { open: boolean; disabled: boolean }) {
     />
   );
 }
+
+//#endregion
+
+//#region Accordion
 
 export default function Accordion({
   title,
@@ -127,3 +137,5 @@ export default function Accordion({
     </section>
   );
 }
+
+//#endregion
