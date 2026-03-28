@@ -1,6 +1,25 @@
-import { CheckCircleIcon } from "@phosphor-icons/react";
+import { CheckCircleIcon, WarningCircleIcon } from "@phosphor-icons/react";
 import Button from "./components/Button";
 import Card from "./components/Card";
+import Tag, { type TagSize, type TagStyle } from "./components/Tag";
+
+const tagStyles: TagStyle[] = [
+  "neutral",
+  "success",
+  "warning",
+  "error",
+  "info",
+];
+
+const tagSizes: TagSize[] = ["xSmall", "small", "medium", "large"];
+
+const styleLabel: Record<TagStyle, string> = {
+  neutral: "Neutral",
+  success: "Success",
+  warning: "Warning",
+  error: "Error",
+  info: "Info",
+};
 
 function App() {
   return (
@@ -62,6 +81,79 @@ function App() {
               <div className="flex gap-4">
                 <Button variant="secondarySolid">Button</Button>
                 <Button variant="primary">Button</Button>
+              </div>
+            }
+            tags={
+              <div className="flex w-full max-w-full flex-col gap-3">
+                <div className="flex flex-wrap gap-2">
+                  {tagStyles.map((s) => (
+                    <Tag
+                      key={`fill-${s}`}
+                      size="small"
+                      style={s}
+                      variant="filled"
+                    >
+                      {styleLabel[s]}
+                    </Tag>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {tagStyles.map((s) => (
+                    <Tag
+                      key={`outline-${s}`}
+                      size="small"
+                      style={s}
+                      variant="outline"
+                    >
+                      {styleLabel[s]}
+                    </Tag>
+                  ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  {tagSizes.map((sz) => (
+                    <Tag
+                      key={`sz-${sz}`}
+                      size={sz}
+                      style="neutral"
+                      variant="filled"
+                    >
+                      {sz}
+                    </Tag>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {tagStyles.map((s) => (
+                    <Tag
+                      key={`pill-${s}`}
+                      size="small"
+                      style={s}
+                      variant="filled"
+                      rounded
+                    >
+                      {styleLabel[s]}
+                    </Tag>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Tag
+                    size="small"
+                    style="warning"
+                    variant="filled"
+                    icon={<WarningCircleIcon weight="fill" aria-hidden />}
+                    iconPlacement="leading"
+                  >
+                    Icon lead
+                  </Tag>
+                  <Tag
+                    size="small"
+                    style="info"
+                    variant="filled"
+                    icon={<WarningCircleIcon weight="fill" aria-hidden />}
+                    iconPlacement="trailing"
+                  >
+                    Icon trail
+                  </Tag>
+                </div>
               </div>
             }
           />

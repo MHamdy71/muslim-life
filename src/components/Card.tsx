@@ -24,8 +24,8 @@ export type CardProps = Omit<
   title?: ReactNode;
   body?: ReactNode;
   footer?: ReactNode;
-  tags?: string[];
-  rating?: number;
+  tags?: ReactNode;
+  rating?: number | ReactNode;
   ariaLabel?: string;
   defaultSelected?: boolean;
   separator?: boolean;
@@ -316,24 +316,21 @@ export default function Card({
         {footerNode}
       </div>
 
-      {tags && tags.length > 0 && (
+      {tags != null && tags !== false && (
         <div className="content-stretch flex flex-wrap gap-2 items-start relative shrink-0">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="bg-gray-50 border border-gray-200 border-solid h-6 inline-flex items-center justify-center px-2 rounded-sm text-xs text-center whitespace-nowrap font-medium leading-5 text-gray-800 shrink-0"
-            >
-              {tag}
-            </span>
-          ))}
+          {tags}
         </div>
       )}
 
-      {rating != null && (
+      {rating != null && rating !== false && (
         <div className="w-full flex items-start justify-start">
-          <span className="text-xs leading-5 text-gray-600">
-            {rating} reviews
-          </span>
+          {typeof rating === "number" ? (
+            <span className="text-xs leading-5 text-gray-600">
+              {rating} reviews
+            </span>
+          ) : (
+            rating
+          )}
         </div>
       )}
 
