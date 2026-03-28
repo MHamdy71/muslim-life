@@ -7,7 +7,7 @@ alwaysApply: false
 # Spacing Rules
 
 - Use Tailwind default spacing scale utilities (examples: `p-4`, `mt-2`, `gap-3`).
-- Avoid arbitrary values (examples: `p-[13px]`, `m-[5.5px]`).
+- Avoid arbitrary values; when the default scale is not enough, use **`rem`** (never `px`), e.g. `p-[0.75rem]` not `p-[12px]`.
 - Do NOT create a custom spacing token system or custom spacing keys.
 - Prefer existing spacing values already used elsewhere in the UI.
 

@@ -1,0 +1,26 @@
+---
+description: Global — palette from colors.css only; sizing in rem never px
+alwaysApply: true
+---
+
+# Design tokens and units (global)
+
+## Colors
+
+- Use Tailwind utilities backed by `src/styles/tokens/colors.css` only (`gray-*`, `primary-*`, etc.).
+- Do **not** put raw `#hex`, `rgb()`, or `hsl()` in component `className` strings or inline styles for UI colors. Exceptions: token source files under `src/styles/tokens/`, SVG `fill`/`stroke` when the asset is fixed, or tooling-required cases.
+- If the design needs a shade that is not in `colors.css`, add it there first, then use the utility.
+
+## Lengths and typography sizes
+
+- Do **not** use `px` in application styling (`src/`): no arbitrary classes like `w-[360px]`, `text-[16px]`, `leading-[24px]`, `rounded-[2px]`, or `0px` in shadows.
+- **Prefer built-in Tailwind utilities** (`text-base`, `leading-6`, `size-6`, `rounded-sm`, `h-62.5`, spacing scale, etc.) whenever they match the design. Only use arbitrary **`[…rem]`** values when no scale token fits.
+- Express any remaining custom sizes in **`rem`**, not `px` (e.g. `w-[22.5rem]`, shadow offsets `0_0.25rem_0.5rem_0_…`).
+- Base assumption: **1rem = 16px** when converting from design specs.
+
+## Examples
+
+```text
+Bad:  text-[16px] leading-[1.5rem] (when leading-6 matches)
+Good: text-base leading-6; if no utility fits, text-[1.0625rem] not px
+```

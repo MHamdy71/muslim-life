@@ -1,3 +1,4 @@
+import { CaretDownIcon } from "@phosphor-icons/react";
 import { useState, type ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 import type {
@@ -35,30 +36,22 @@ const roundedClasses: Record<ComponentRounded, string> = {
   small: "rounded-sm overflow-hidden",
   medium: "rounded-md overflow-hidden",
   large: "rounded-lg overflow-hidden",
+  xl: "rounded-xl overflow-hidden",
   full: "rounded-full overflow-hidden",
 };
 
 function Chevron({ open, disabled }: { open: boolean; disabled: boolean }) {
   return (
-    <svg
-      aria-hidden="true"
+    <CaretDownIcon
+      size={16}
+      weight="regular"
       className={twMerge(
-        "size-4 shrink-0 transition-transform",
+        "shrink-0 transition-transform",
         disabled ? "text-gray-400" : "text-gray-600",
         open && "rotate-180",
       )}
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.33337 6L8.00004 10.6667L12.6667 6"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+      aria-hidden
+    />
   );
 }
 

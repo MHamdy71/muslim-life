@@ -14,7 +14,7 @@ alwaysApply: false
 
 ## Not Allowed
 
-- Arbitrary values (e.g. `p-[13px]`)
+- Arbitrary values in **`px`** (e.g. `p-[13px]`, `text-[16px]`). Use Tailwind scale utilities or **`rem`** arbitrary values (see `design-tokens-units.mdc`).
 - Color utilities for scales **not** defined in `src/styles/tokens/colors.css` (e.g. stock `text-green-500` if green isn’t in the project file)
 - Hardcoded color values:
   - no `#hex`, `rgb()`, `rgba()`, `hsl()` in inline styles

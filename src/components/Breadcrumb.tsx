@@ -1,10 +1,5 @@
-import {
-  useEffect,
-  useId,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
+import { CaretRightIcon } from "@phosphor-icons/react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 export type BreadcrumbLink = { label: string; href: string };
@@ -33,23 +28,15 @@ function isCurrent(
 
 function Separator({ muted }: { muted?: boolean }) {
   return (
-    <svg
-      aria-hidden
-      viewBox="0 0 16 16"
-      fill="none"
+    <CaretRightIcon
+      size={16}
+      weight="regular"
       className={twMerge(
-        "size-4 shrink-0 rtl:scale-x-[-1]",
+        "shrink-0 rtl:scale-x-[-1]",
         muted ? "text-gray-400" : "text-gray-700",
       )}
-    >
-      <path
-        d="M6 4l4 4-4 4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+      aria-hidden
+    />
   );
 }
 
@@ -104,10 +91,7 @@ function BreadcrumbEllipsisMenu({
   const listId = `${menuId}-list`;
 
   return (
-    <li
-      ref={containerRef}
-      className="relative flex min-w-0 items-center gap-1"
-    >
+    <li ref={containerRef} className="relative flex min-w-0 items-center gap-1">
       {showSep && <Separator />}
       <CrumbBody>
         <button

@@ -28,7 +28,8 @@ alwaysApply: false
 # Styling Inside Components
 
 - Use Tailwind for layout/spacing/border/radius/shadow.
-- Use palette utilities from `colors.css` (e.g. `bg-gray-100`, `text-gray-900`) — no hex/rgb in class strings beyond what Tailwind generates from `@theme`.
+- Use palette utilities from `colors.css` (e.g. `bg-gray-100`, `text-gray-900`) — no hex/rgb in class strings beyond what Tailwind generates from `@theme` (see `design-tokens-units.mdc`).
+- Use **`rem`** for any custom lengths or font sizes, not `px` (see `design-tokens-units.mdc`).
 - **Fonts:** rely on `body` for UI (inherit); use `font-content` only for long Arabic reading content per `typography.mdc`.
 - **Class lists:** build every `className` with `twMerge` from `tailwind-merge`. Do not add a local `cx` / `classNames` helper that only joins strings — `twMerge` resolves conflicting Tailwind utilities and accepts conditional args (`false` / `undefined` are ignored).
 - Merge consumer `className` with defaults via `twMerge(defaults, className)` so overrides win for conflicting utilities.

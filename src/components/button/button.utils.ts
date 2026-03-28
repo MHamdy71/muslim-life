@@ -14,7 +14,7 @@ import type {
 export function focusRing(outer: string): string {
   return (
     "focus-visible:outline-none " +
-    `focus-visible:shadow-[0_0_0_2px_#ffffff,0_0_0_5px_${outer}] focus-visible:overflow-visible`
+    `focus-visible:shadow-[0_0_0_0.125rem_#ffffff,0_0_0_0.3125rem_${outer}] focus-visible:overflow-visible`
   );
 }
 

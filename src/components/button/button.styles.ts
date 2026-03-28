@@ -8,6 +8,7 @@ export const roundedClasses: Record<ComponentRounded, string> = {
   small: "rounded-sm",
   medium: "rounded-md",
   large: "rounded-lg",
+  xl: "rounded-xl",
   full: "rounded-full",
 };
 
@@ -28,7 +29,7 @@ export const sizeConfig: Record<
   }
 > = {
   small: {
-    root: "min-h-6 h-6 gap-1 px-2 text-xs leading-[18px]",
+    root: "min-h-6 h-6 gap-1 px-2 text-xs leading-[1.125rem]",
     iconOnly: "size-6 max-h-6 max-w-6 min-h-6 min-w-6 p-0",
     iconSlot: "size-4",
   },

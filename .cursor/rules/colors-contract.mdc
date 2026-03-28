@@ -6,6 +6,7 @@ alwaysApply: false
 
 # Colors Contract (Strict Control)
 
+- Global enforcement summary: `design-tokens-units.mdc` (always applied).
 - Colors will be provided explicitly by you; do not generate or suggest new colors.
 - Do not modify provided colors in `src/styles/tokens/colors.css` unless asked.
 
